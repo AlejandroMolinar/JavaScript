@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Page Title</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <style>
+            body{
+                background-color: rgb(159, 238, 240);
+                color: rgb(11, 120, 230);
+            }
+
+            table{
+                margin: auto;
+                text-align: center;
+                background-color: rgb(117, 186, 255);
+                margin-top: -40px;
+            }
+
+            #nav{
+                margin: auto;
+                text-align: center;
+            }
+
+            #imageCar{
+                width: 200px;
+                height: 200px;
+            }
+
+            #top{
+                text-align: center;
+            }
+
+            #marco{
+                background-color: darkblue;
+                text-align: center;
+                margin: auto;
+                margin-left: 540px;
+                margin-right: 530px;
+            }
+
+            #image3{
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+
+        <script>
+            $(document).ready(function() {
+            
+                var band=true;
+                $("#marco").hide();
+
+                $("#moverAnimated").click(function() {          //ImageAnimated
+                   $("img").animate({
+                        marginLeft: "+=150px"
+                   }, 1000); 
+                });
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+                $("#abrirMenu").click(function() {              //MenuAnimated
+                   
+                   if (band==true) {
+
+                      $("table").animate({
+                        marginTop: "5px"
+                      }, 500);
+                      band=false;
+                    
+                    }else if(band==false){
+                       
+                        $("table").animate({
+                        marginTop: "-40px"
+                      }, 500);
+                      band=true;
+                   }
+                });
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+                $("#image3").click(function() {          //ImageAument
+                   
+                if (band==true) {
+                    $(this).animate({
+                        marginLeft: "543px",
+                        width: "300px",
+                        height: "300px"
+                    }, 2000, function() {
+                        $("#marco").show();
+                    }); 
+                    band=false;
+                       
+                }else if(band==false){
+                        
+                    $(this).animate({
+                        marginLeft: "0px",
+                        width: "100px",
+                        height: "100px"
+                    }, 2000, function() {
+                        $("#marco").hide();
+                    }); 
+                    band=true;
+                }
+                  
+                  
+                });
+                
+
+            });
+            
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <td><input type="email" name="Email" id="email"></td>
+                <td><input type="number" name="num" id="nume"></td>
+                <td><input type="date" name="date" id="dated"></td>
+                <td><input type="search" name="search" id="searchs"></td>
+                <td><input type="button" value="Enviar" id="enviar"></td>
+            </tr>
+            <tr>
+                <td colspan="5"><input type="button" value="Abrir/Cerrar" id="abrirMenu"></td>
+            </tr>
+        </table>
+
+        <br><br>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------->
+        <fieldset>
+            <div id="nav">
+                <H3>Animation</H3>
+                <input type="button" value="Mover" id="moverAnimated">
+            </div>
+                
+            <br>
+            <img src="C:\Users\Alejandro Molinar\Documents\java\IMAGENES\images.png" id="imageCar">
+
+        </fieldset>
+
+        <br><br>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+        <fieldset>
+            <legend>Imagen</legend>
+            <img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\wallpaper-quadhd-4.jpg" id="image3">
+
+            <div id="marco">
+                <label>Marco Imagen</label>
+            </div>
+
+        </fieldset>
+
+    </body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Page Title</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+
+        <style>
+        
+            body{
+                background-color: #c77575;
+                color: rgb(217, 224, 115);
+            }
+
+            #loginTable{
+                margin: auto;
+                text-align: center;
+                
+                
+            }
+
+            #CompraTable{
+                margin: auto;
+                text-align: center;
+                display: none;
+            }
+            
+
+            #abreLogin{
+                text-align: center;
+            }
+
+            .iframe{
+                margin: auto;
+                padding: auto;
+            }
+
+            .visibility{
+                visibility: hidden;
+            }
+
+        </style>
+
+        <script>
+            $(document).ready(function() {
+
+                $("#loginButton").click(function(e) {                    
+                   
+                    $("#CompraTable").slideToggle(500);
+
+                    //open("http://www.youtube.com", "Youtube", "width=600, height=400, left=300, top=300");
+                    //e.preventDefault();       Estas dos instrucciones funcionan para parar el flujo de la ventana
+                    //return false;             
+                });
+
+                /*$("#formulario").validate({
+                    rules:{
+                        user: "required", 
+                        //nameC:,
+                        email: {
+                            required:true,
+                            email:true
+                        },
+                        passW1:{
+                            required:true,
+                            rangelength:[8,10]
+                        },
+                        passW2:{ 
+                            required:true,
+                            equalTo:"#passW1"
+                        }, 
+                        age: {
+                            number: true,
+                            range: [1,150]
+                        },
+                        //male: ,
+                        //female:,
+                        date: "date"
+                        //country:
+                    },
+
+                    messages:{
+                        email:{
+                            required: "Email Obligario",
+                            email: "Email no valido"
+                        },
+                        age:{
+                            number: "Edad no valida",
+                            range: "Edad no admitido, rango 1 al 150"
+                        },
+                        passW1:{
+                            required: "Contraseña Obligatoria",
+                            rangelength:"Contraseña no valida, rango 8 a 16"
+                        },
+                        passW2:{ 
+                            required: "Contraseña Obligatoria",
+                            equalTo:"Contraseña no Coincide"
+                        }, 
+
+
+                    }
+
+                }); */
+
+                $("#formulario").submit(function () {
+                    
+                    var datosForm= $(this).serialize();
+                     
+
+                    $.getJSON("login.php", datosForm, function (datosGet) {
+                        $("#iframe").html(datosGet.User);
+                       
+                    return false;
+                    });
+                });
+
+               /* $(":radio").click(function () {
+                   //PARA almacenar lo que el suario eligio en el clic
+                    var seleccion= $(this).val();
+                    alert(seleccion);
+                });*/
+
+                /*$("#country").change(function () {
+                   //para saber cuando el usuario cambia el Combobox
+                   var seleccion= $(this).val();
+                    alert(seleccion);
+                   
+                });*/
+
+                $("#payPal").click(function () {
+                    $("#email").css("visibility", "visible").focus();
+                    $("#codMasterCard").css("visibility", "hidden");
+                    $("#codVisa").css("visibility", "hidden");
+                    $("#idBitCoin").css("visibility", "hidden");
+                });
+
+                $("#visa").click(function () {
+                    $("#codVisa").css("visibility", "visible").focus();
+                    $("#codMasterCard").css("visibility", "hidden");
+                    $("#email").css("visibility", "hidden");
+                    $("#idBitCoin").css("visibility", "hidden");
+                    
+                });
+
+                $("#masterCard").click(function () {
+                    $("#codMasterCard").css("visibility", "visible").focus();
+                    $("#codVisa").css("visibility", "hidden");
+                    $("#email").css("visibility", "hidden");
+                    $("#idBitCoin").css("visibility", "hidden");
+                });
+
+                $("#bitCoin").click(function () {
+                    $("#idBitCoin").css("visibility", "visible").focus();
+                    $("#codMasterCard").css("visibility", "hidden");
+                    $("#codVisa").css("visibility", "hidden");
+                    $("#email").css("visibility", "hidden");
+                     
+                });
+
+                
+               
+            });
+
+        </script>
+
+    </head>
+    <body>
+        
+        <h1 style="text-align: center;">Inicio de Sesion</h1> 
+        
+        
+        <div id="nav">
+            <form action="" method="get" id="formulario">
+                <table  border="1" id="loginTable">
+                    <tr><td colspan="2" style="text-align: center;"><h3>Login</h3></td></tr>
+                    <tr><td colspan="2" style="text-align: center;">Campos Obligatorios: *</td></tr>
+                    <tr>
+                        <td><label>User *</label></td>
+                        <td><input type="text" name="user" id="user" title="Usuario Faltante"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Name Complete</label></td>
+                        <td>
+                            <input type="text" name="Name Complete" id="nameC">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Email</label></td>
+                        <td><input type="email" name="email" id="email" ></td>
+
+                    </tr>
+
+                    <tr>
+                        <td><label>Password *</label></td>
+                        <td><input type="password" name="passW1" id="passW1" title="Contraseña Faltante"></td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td><label>Repeat Password *</label></td>
+                        <td><input type="password" name="passW2" id="passW2" title="Contraseña Faltante"></td>
+
+                    </tr>
+
+                    <tr>
+                        <td><label>Edad</label></td>
+                        <td><input type="text" name="age" id="age" ></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Sex</label>
+                        </td>
+                        <td>
+                            <label>M</label>
+                            <input type="radio" name="sexo" id="male" value="Male">
+
+                            <label>F</label>
+                            <input type="radio" name="sexo" id="female" value="Female">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Date</label>
+                        </td>
+                        <td>
+                            <input type="date" name="date" id="date">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Country</label></td>
+                        <td>
+                            <select name="Country" id="country">
+                                <option value="esp">España</option>
+                                <option value="vnz">Venezuela</option>
+                                <option value="us">United State</option>
+                                <option value="gmn">Germany</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="button" value="Borrar" id="borrar"></td> 
+                        <td><input type="submit" value="Enviar" id="enviar"></td>
+                    </tr>
+                </table>
+            </form>    
+        </div>
+        <br><br>
+
+        <div id="abreLogin">
+            <label>Comprar --></label>        
+            <input type="button" value="Comprar" id="loginButton">
+        </div>
+
+        <form action="" method="get" id="CompraForm">
+            <table border="1" id="CompraTable">
+                <tr><td colspan="2" style="text-align: center;"><h3>Compra</h3></td></tr>
+                    <tr>
+                        <td><label>Tipo de Pago</label></td>
+                        <td><label>PayPal</label>
+                        <input type="radio" name="TipoPago" id="payPal" value="PayPal">
+                        <br>
+                        <label>Visa</label>
+                        <input type="radio" name="TipoPago" id="visa" value="Visa">
+                        <br>
+                        <label>MasterCard</label>
+                        <input type="radio" name="TipoPago" id="masterCard" value="MasterCard">
+                        <br>
+                        <label>BitCoin</label>
+                        <input type="radio" name="TipoPago" id="bitCoin" value="BitCoin">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Email</label></td>
+                        <td>
+                            <input type="text" name="Email" id="email" class="visibility">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Codigo Tarjeta Visa</label></td>
+                        <td><input type="text" name="codVisa" id="codVisa" class="visibility"></td>
+
+                    </tr>
+
+                    <tr>
+                        <td><label>Codigo Tarjeta MasterCard</label></td>
+                        <td><input type="text" name="codMasterCard" id="codMasterCard" class="visibility"></td>
+
+                    </tr>
+
+                    <tr>
+                        <td><label>Id cuenta BitCoin</label></td>
+                        <td><input type="text" name="IdBitCoin" id="idBitCoin" class="visibility"></td>
+
+                    </tr>
+
+            </table>
+        </form>
+
+        
+
+    
+        <div class="iframe">
+           <!--<iframe src="Gallery.html" frameborder="0" width="500", height="400"></iframe> -->
+        </div>
+    
+    </body>
+</html>

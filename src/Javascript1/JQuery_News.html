@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta  charset=utf-8/>
+		<title>Insert title here</title>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		
+		<style>
+			
+			table{
+/* 				width: 100px; */
+/* 				height: 100px; */
+				margin-top: 60px;
+				border: medium black;
+				border-spacing: 100px;	
+				margin: auto;		
+									
+			}			
+			
+			
+			.button{
+				
+				width: 100px;
+				margin-right: 5px;
+				
+				
+				text-decoration: deepskyblue;
+			}
+			
+			
+		</style>
+		
+		<script>
+			$(document).ready(function() {
+			
+
+// 				document.getElementById("foundBig1").addEventListener("click", Aumento, false);				
+// 				document.getElementById("foundSmall1").addEventListener("click", Disminucion, false);
+// 				document.getElementById("foundBig2").addEventListener("click", Aumento, false);				
+// 				document.getElementById("foundSmall2").addEventListener("click", Disminucion, false);
+// 				document.getElementById("foundBig3").addEventListener("click", Aumento, false);				
+// 				document.getElementById("foundSmall3").addEventListener("click", Disminucion, false);
+
+				var button= document.querySelectorAll("input");
+								
+				for (let iterable_element of button) {
+					iterable_element.addEventListener("click", Aumento, false);				
+					iterable_element.addEventListener("click", Disminucion, false);
+					iterable_element.addEventListener("click", ModoLectura, false);
+				}
+
+
+			});	
+			
+			
+			function Aumento(e) {
+				
+				var zonaNews;
+				
+				if (e.target==foundBig1) {
+					zonaNews="#news1";
+					
+				} else if (e.target==foundBig2){
+					zonaNews="#news2";
+					
+				} else if (e.target==foundBig3){
+					zonaNews="#news3";
+					
+				}
+				
+				
+				var fontSize= $(zonaNews).css("font-size");
+				
+				$(zonaNews).css("font-size", parseInt(fontSize)+1);
+				
+			}
+			
+			function Disminucion(e) {
+				
+				var zonaNews;
+				
+				if (e.target==foundSmall1) {
+					zonaNews="#news1";
+					
+				} else if (e.target==foundSmall2){
+					zonaNews="#news2";
+					
+				} else if (e.target==foundSmall3){ 	
+					zonaNews="#news3";
+					
+				}
+				
+				var fontSize= $(zonaNews).css("font-size");
+				
+				$(zonaNews).css("font-size", parseInt(fontSize)-1);
+			}
+			
+			function ModoLectura(e) {
+				
+				var zonaNews;
+				
+				if (e.target==modoLect1) {
+					zonaNews="#news1";
+					
+				} else if (e.target==modoLect2){
+					zonaNews="#news2";
+					
+				} else if (e.target==modoLect3){
+					zonaNews="#news3";
+					
+				}
+				
+				$(zonaNews).css({
+					"background-color": "cyan", 
+					"font-style": "italic", 
+					"text-align": "justify",
+					"text-decoration": "deepskyblue"});
+				
+			}
+			
+		</script>
+		
+		
+		
+	</head>
+	<body>
+	
+		<h1 style="text-align: center;">Noticias sobre la IA</h1>
+		
+		<table border="1" >
+		
+			<tr>
+			
+				<td>
+					<label id="news1">La inteligencia artificial (IA) es, en informática, 		<br> 
+					la inteligencia expresada por máquinas, sus procesadores y 					<br>
+					sus softwares, que serían los análogos al cuerpo, el cerebro 				<br>
+					y la mente, respectivamente, a diferencia de la inteligencia 				<br>
+					natural demostrada por humanos y ciertos animales con cerebros 				<br>
+					complejos. En ciencias de la computación, una máquina 						<br>
+					«inteligente» ideal es un agente flexible que percibe su 					<br>
+					entorno y lleva a cabo acciones que maximicen sus posibilidades 			<br>
+					de éxito en algún objetivo o tarea.</label>									<br><br>
+					
+					<input type="button" id="foundBig1" value="Aumentar" class="button">
+					<input type="button" id="modoLect1" value="Modo Lectura" class="button">
+					<input type="button" id="foundSmall1" value="Disminuir" class="button">
+				</td>
+				
+				<td>
+					<label id="news2">La Minería de datos o exploración de datos (es la etapa	<br>
+					de análisis de "Knowledge Discovery in Databases" o KDD) es un				<br>
+					campo de la estadística y las ciencias de la computación 					<br>
+					referido al proceso que intenta descubrir patrones en 						<br>
+					grandes volúmenes de conjuntos de datos. Utiliza los métodos 				<br>
+					de la inteligencia artificial, aprendizaje automático, 						<br>
+					estadística y sistemas de bases de datos. </label>							<br><br><br><br>
+					
+					<input type="button" id="foundBig2" value="Aumentar" class="button">
+					<input type="button" id="modoLect2" value="Modo Lectura" class="button">
+					<input type="button" id="foundSmall2" value="Disminuir" class="button">
+				</td>
+				
+				<td>
+					<label id="news3">La capacidad de las máquinas para aprender está presente	<br>
+					en muchos aspectos de la vida cotidiana. Por ello, el ‘machine 				<br>	
+					learning’ está detrás de las recomendaciones de películas en 				<br>
+					plataformas digitales, del reconocimiento por voz de los 					<br>
+					asistentes virtuales o la capacidad de los coches autónomos 				<br>
+					para ver la carretera. Sin embargo, el origen de esta disciplina			<br>
+					data de varias décadas atrás. Entonces: ¿por qué ahora es tan				<br>
+					importante esta tecnología y qué la hace tan revolucionaria?</label>		<br><br>
+					
+					<input type="button" id="foundBig3" value="Aumentar" class="button">
+					<input type="button" id="modoLect3" value="Modo Lectura" class="button">
+					<input type="button" id="foundSmall3" value="Disminuir" class="button">
+				</td>
+			
+			
+			
+			</tr>
+			
+		
+		
+		</table>
+		
+		
+		
+		
+	</body>
+</html>

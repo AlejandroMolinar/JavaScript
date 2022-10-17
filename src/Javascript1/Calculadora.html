@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Calculadora</title>
+	</head>
+	
+	<style>
+		table {
+			margin: auto;
+			
+		}
+		
+		.button{
+			height: 90px;
+			width: 60px;
+			
+		}
+		
+		.display{
+			height: 40px;
+		}
+		
+		
+		
+			
+			
+	</style>
+		
+	<body>
+		<script>
+			
+			
+			function clic_number(button) {
+				
+				if (contador==0) {
+					document.getElementById("display").value=button;
+					stringPast=button;
+					contador++;
+				}else if (contador=1) {
+					
+					document.getElementById("display").value=stringPast +""+ button;
+					stringPast=stringPast +""+ button;
+					
+				}
+				
+				
+				
+			}
+			
+			function dalete(){
+				document.getElementById("display").value="";
+				contador=0;
+				stringPast="";
+				
+			}
+			
+			function suma() {
+				
+				last= stringPast;
+				signoRes="+";
+				
+				stringPast="";
+				
+			}
+			
+			function resta() {
+				last= stringPast;
+				signoRes="-";
+				
+				stringPast="";
+			}
+			
+			function multiplicacion() {
+				last= stringPast;
+				signoRes="*";
+				
+				stringPast="";
+			}
+			
+			function dividir() {
+				last= stringPast;
+				signoRes="/";
+				
+				stringPast="";
+			}
+			
+			function igual() {
+				
+				if (signoRes=="+") {
+					resultado=  parseInt(last) +  parseInt(stringPast);
+					document.getElementById("display").value=resultado;
+					
+					stringPast=resultado;
+										
+				}else if (signoRes=="-") {
+					resultado=  parseInt(last) -  parseInt(stringPast);
+					document.getElementById("display").value=resultado;
+					
+					stringPast=resultado;
+									
+				}else if (signoRes=="/") {
+					resultado=  parseInt(last) /  parseInt(stringPast);
+					document.getElementById("display").value=resultado;
+					
+					stringPast=resultado;
+					
+				}else if (signoRes=="*") {
+					resultado=  parseInt(last) *  parseInt(stringPast);
+					document.getElementById("display").value=resultado;
+					
+					stringPast=resultado;
+					
+				}
+				
+			}
+		
+		</script>
+				
+		<table border="1">
+			<tr>
+				<td align="center" colspan="4"><input type="text" id="display" size="32" class="display" value="0"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="1" value="1" class="button" onclick="clic_number(1)"></td>
+				<td><input type="button" id="2" value="2" class="button" onclick="clic_number(2)"></td>
+				<td><input type="button" id="3" value="3" class="button" onclick="clic_number(3)"></td>
+				<td><input type="button" id="+" value="+" class="button" onclick="suma()"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="4" value="4" class="button" onclick="clic_number(4)"></td>
+				<td><input type="button" id="5" value="5" class="button" onclick="clic_number(5)"></td>
+				<td><input type="button" id="6" value="6" class="button" onclick="clic_number(6)"></td>
+				<td><input type="button" id="-" value="-" class="button" onclick="resta()"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="7" value="7" class="button" onclick="clic_number(7)"></td>
+				<td><input type="button" id="8" value="8" class="button" onclick="clic_number(8)"></td>
+				<td><input type="button" id="9" value="9" class="button" onclick="clic_number(9)"></td>
+				<td><input type="button" id="/" value="/" class="button" onclick="dividir()"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="borrar" value="<-" class="button" onclick="dalete()"></td>
+				<td><input type="button" id="0" value="o" class="button" onclick="clic_number(0)"></td>
+				<td><input type="button" id="*" value="*" class="button" onclick="multiplicacion()"></td>
+				<td><input type="button" id="igual" value="=" class="button" onclick="igual()"></td>
+			</tr>
+		
+		
+		</table>
+		
+		<script> 
+		var contador=0;
+		var stringPast=0;
+		var last=0;
+		var signoRes=""; 
+		
+		</script>
+		
+		
+	</body>
+</html>

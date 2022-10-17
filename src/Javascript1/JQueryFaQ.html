@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-15">
+		<title>FAQ</title>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		
+		<style type="text/css">
+		
+			*{
+				background-color: greenyellow;	
+			
+			}
+			
+		</style>
+		
+		<script>
+			$(document).ready(function() {
+				
+				var contador=0;
+				$("ul li ul li").hide();	
+				
+ 				$(".questions1").click(function() {
+					
+ 					if (contador==0) {
+						$(".answer1").show();
+						contador++;
+					} else {
+						$(".answer1").hide();
+						contador=0;
+					}
+ 					
+				}); 
+ 				
+				$(".questions2").click(function() {
+					
+					if (contador==0) {
+						$(".answer2").show();
+						contador++;
+					} else {
+						$(".answer2").hide();
+						contador=0;
+					}
+				}); 
+				
+				$(".questions3").click(function() {
+					
+					if (contador==0) {
+						$(".answer3").show();
+						contador++;
+					} else {
+						$(".answer3").hide();
+						contador=0;
+					}
+				}); 
+ 				
+			});
+			
+		</script>
+			
+		
+	</head>
+	<body>
+		 
+		 <h1 style="text-align: center;">FAQ</h1>
+		 
+		 <br>
+		<div id="content">
+			<ul id="nav">
+				<li class="questions1"> <h3>1 ¿Por qué es importante una sección de FAQ o preguntas frecuentes?</h3>
+					<ul>
+						<li class="answer1"> Funciona para mejorar el SEO 	</li>
+						<li class="answer1"> Ahorros en atención al cliente </li>
+						<li class="answer1"> Gestión del tiempo 			</li>
+						<li class="answer1"> Fideliza una compra 			</li>
+					</ul>
+				</li>	
+				<li class="questions2"> <h3>2 Ejemplos de preguntas frecuentes en una página web</h3>
+					<ul>
+						<li class="answer2"> ¿Qué beneficios tiene adquirir este producto o servicio?	</li>
+						<li class="answer2"> ¿Realmente necesito este producto o servicio? 				</li>
+						<li class="answer2"> ¿Cómo funciona? 											</li>
+						<li class="answer2"> ¿Tiene garantía? 											</li>
+						<li class="answer2"> ¿Cuánto dinero cuesta la adquisición de este producto? 	</li>
+						<li class="answer2"> ¿Qué métodos de pago aceptan? 								</li>
+						<li class="answer2"> ¿En cuánto tiempo tendré listo mi producto? 				</li>
+						<li class="answer2"> ¿Qué productos están disponibles y qué productos no?		</li>
+						<li class="answer2"> ¿Cómo empiezo? 											</li>
+					</ul>
+				</li>	
+				<li class="questions3"> <h3>3 Consejos para crear una página de preguntas frecuentes</h3>
+					<ul>	
+						<li class="answer3"> No utilices este espacio para promocionarte 					</li>
+						<li class="answer3"> Agrega un buscador 											</li>
+						<li class="answer3"> No crees demasiadas preguntas 									</li>
+						<li class="answer3"> Organiza tus preguntas por orden de frecuencia 				</li>
+						<li class="answer3"> Agrega todos los elementos que necesites para darte a entender </li>
+					</ul>	
+				</li>
+				<li class="questions"> <h3>4 ¿Por qué son importantes los ejemplos de preguntas frecuentes en una web?</h3> </li>
+				
+			</ul>	
+		
+		</div>
+		
+		
+	</body>
+</html>

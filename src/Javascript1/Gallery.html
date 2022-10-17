@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+    <style>
+
+        body{
+            background-color: #f36f89;
+            color: crimson;
+        }
+
+    </style>
+
+    <script>
+        
+        $(document).ready(function() {
+
+            $("#gallery1 a").fancybox({
+                overleyColor: "#f5879d",
+                overleyOpacity: .6,
+                transitionIn: "elastic",
+                transitionOut: "elastic",
+                speedIn: 1000,
+                titlePosition: "Outside",
+                cyclic: true
+            });        
+        });
+
+    </script>
+
+
+</head>
+<body>
+    
+    <h1 style="text-align: center;">Gallery</h1>
+
+    <fieldset id="gallery1">
+        <legend><h3>Image</h3></legend>
+        <a href="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\thumb-1920-1014069.jpg">
+            <img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\thumb-1920-1014069.jpg" id="image1" width="70px" height="70px">
+        </a>
+
+		<a href="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\26704_4k-ultra-hd-desktop-wallpapers-hd-3840x2160-free-desktop_3840x2160_h.jpg">
+            <img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\26704_4k-ultra-hd-desktop-wallpapers-hd-3840x2160-free-desktop_3840x2160_h.jpg" id="image2" width="70px" height="70px">
+        </a>
+
+		<a href="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\wallpaper-quadhd-4.jpg">
+            <img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\wallpaper-quadhd-4.jpg" id="image3" width="70px" height="70px">
+        </a>
+
+		<a href="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\thumb-1920-407944.png">
+            <img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\thumb-1920-407944.png" id="image4" width="70px" height="70px">
+        </a>
+    </fieldset>
+
+</body>
+</html>

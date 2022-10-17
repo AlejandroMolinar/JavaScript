@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Numeros Randoms</title>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td> <label>Ayuda</label> </td>
+				<td> <input type="text" id="help"> </td>
+			</tr>
+			<tr>
+				<td> <label>Intentos</label> </td>
+				<td> <input type="text" id=""> </td>
+			</tr>
+		
+		</table>
+		
+		<script>
+			
+			var numRandom= Math.round(random()*100); /*Numero aleatorio*/
+			
+			var intentos;	intentos=0;
+			var numUser;	numUser=0;
+			
+			var help= document.getElementById("help");  
+			var tried= document.getElementById("tried"); 
+			
+			do {
+				
+				numUser=prompt("Introduzca un numero del 0 al 100");
+				
+				if (numRandom<numUser) {
+					
+					help.value= "Mas Alto";
+					help.style.textAlign="center";
+					help.style.fontSize= "10px";
+				}
+				
+				if (numRandom>numUser) {
+					
+					help.value= "Mas Bajo";
+					help.style.textAlign="center";
+					help.style.fontSize= "10px";
+								
+				}
+				
+				intentos++;
+				
+				tried.value= intentos;
+				tried.style.textAlign="center";
+				tried.style.backgroundColor= "red";
+				
+				
+			} while (numRandom!=numUser);
+		
+		</script>
+	</body>
+</html>

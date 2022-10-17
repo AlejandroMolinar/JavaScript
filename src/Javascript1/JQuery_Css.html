@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>JQuery CSS</title>
+		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+		<style>
+			body{
+				background-color: rgb(161, 245, 245);
+				color: darkcyan;
+			}
+
+			.items-up{
+				margin: auto;
+				width: 100%;
+				text-align: center;
+			}
+			
+			.itemsleft{
+			
+				position: absolute;
+				left: 50px;
+				top: 100px;
+				
+				
+			}
+
+			.itemsleft2{
+			
+			position: absolute;
+			left: 300px;
+			top: 100px;
+			
+			
+		}
+		
+			.linkDest2{
+				color: rgb(4, 66, 66);
+				font-weight: bold;
+				margin-left: 30px;
+				border-color: black;
+			}
+			
+			.linkDest{
+				color: blueviolet;
+				font-weight: bold;
+				margin-left: 30px;
+			}
+			
+			.imageCss{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 300px;
+				
+			}
+		</style>
+		
+		
+		<script>
+			$(document).ready(function() {
+				
+// 				$("a[href^='https://']").addClass("linkDest"); /*Esta sentencia es para destacar un hipervinculo en concreto, en este caso es un link Externo http*/
+
+				document.getElementById("course").addEventListener("click", function entretenimiento() {
+					
+// 					$(".entretenimiento").addClass("linkDest");
+// 					$(".herramienta").removeClass("linkDest");
+					
+					$(".entretenimiento").toggleClass("linkDest");
+					
+				}, false);
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				
+				document.getElementById("buyObject").addEventListener("click", function herramienta() {
+					
+// 					$(".herramienta").addClass("linkDest");
+// 					$(".entretenimiento").removeClass("linkDest");
+
+					$(".herramienta").toggleClass("linkDest2"); 
+					
+				}, false);
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+				
+				var itemAll= document.querySelectorAll("a");
+				
+				for ( let iterable_element of itemAll) {
+					
+					iterable_element.addEventListener("mouseover", function (e) {
+						
+						if (e.target==url2) {
+							$("#image1").attr("src", "C:/Users/Alejandro Molinar/Downloads/ffffff/youtube.png");
+							$("#image1").addClass("imageCss");
+							
+						} else if (e.target==url4){
+							$("#image1").attr("src", "C:/Users/Alejandro Molinar/Downloads/ffffff/twitch.jpg");
+							$("#image1").addClass("imageCss");
+
+						} else if (e.target==url6){
+							$("#image1").attr("src", "C:/Users/Alejandro Molinar/Downloads/ffffff/descarga.png");
+							$("#image1").addClass("imageCss");
+
+						}
+					}, false);
+					
+					iterable_element.addEventListener("mouseout", function (e) {
+						
+						if (e.target==url2) {
+							$("#image1").removeAttr("src");
+							$("#image1").removeClass("imageCss");
+							
+						} else if (e.target==url4){
+							$("#image1").removeAttr("src");
+							$("#image1").removeClass("imageCss");
+
+						} else if (e.target==url6){
+							$("#image1").removeAttr("src");
+							$("#image1").removeClass("imageCss");
+
+						}
+					}, false);
+				
+				}
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+				/*$(".iframe").fancybox({
+
+					type:"iframe",
+					width: "90%",
+					height: "90%",
+					titlePosition: "outside"
+				});*/
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+				$(".itemsleft tr td a").click(function () {
+					$(".itemsleft2").load($(this).attr("href"));
+					return false;
+				});
+
+
+
+			});
+			
+		</script>	
+	</head>
+	<body>
+		
+		<table border="1" class="items-up">
+			<tr>
+				<td>Entretenimiento&nbsp;&nbsp;<input type="button" id="course" value="Entre YA">;</td>
+				
+				<td>Herramienta&nbsp;&nbsp;<input type="button" id="buyObject" value="Entre YA"></td> 
+			</tr>
+		</table>
+		
+		<br> <br>
+		
+		
+		<table class="itemsleft">
+			
+			<tr><td><a href="Calculadora.html" class="herramienta" id="url1">Calculadora</a> </td></tr>
+			<tr><td><a href="https://www.youtube.com"  class="iframe" id="url2">YouTube</a> </td></tr>
+			<tr><td><a href="FirstSession.html"  class="herramienta" id="url3">First Session</a> </td></tr>
+			<tr><td><a href="https://www.twitch.tv"  class="iframe" id="url4">Twitch</a> </td></tr>
+			<tr><td><a href="JQuery1.html"  class="herramienta" id="url5">JQuery 1</a> </td></tr>
+			<tr><td><a href="https://fast.com/es/"  class="iframe" id="url6">Prueba de Velocidad</a> </td></tr>
+			<tr><td><a href="NameRandom.html"  class="herramienta" id="url7">Name Random</a> </td></tr>
+			
+		</table>
+		
+		<div class="itemsleft2">
+			
+		
+		</div>
+			
+		
+		
+		
+		
+		
+	</body>
+</html>

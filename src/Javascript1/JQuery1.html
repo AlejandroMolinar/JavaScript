@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>JQuery 1</title>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		
+		<style>
+			body{
+				background-color: rgb(231, 224, 120);
+				color: rgb(245, 233, 75);
+			}
+
+			#gallery{
+				background-color: darkorange;
+				margin-left: -80px;
+				position: absolute;
+				padding-right: 30px;				
+			}
+
+			#image1, #image2, #image3, #image4{
+				margin: 15px;
+				width: 200px;
+				height: 200px;
+				opacity: 0.5;
+			}
+			
+			#banner{
+			
+				background-color: red;
+				width: 450px;
+				height: 300px;
+				position: absolute; /*Posicion arriba del todo*/
+				left: 400px;
+				top: 50px;
+				font-size: 36px;
+				text-align: center;
+				opacity: 2;
+			
+			}
+
+
+		</style>
+
+		<script>
+			$(document).ready(function() {
+				
+						
+			var imageAll= document.querySelectorAll("img");
+		//	var image=[];
+
+
+				for ( let iterable_element of imageAll) {
+					
+				//	image[iterable_element]= new Image();
+				//	image[iterable_element].src=imageAll[iterable_element];
+
+					iterable_element.addEventListener("mouseover", function (e) {
+						
+						if (e.target==image1) {
+							$("#image1").attr("src", "C:/Users/Alejandro Molinar/Pictures/imagenes/FONDOS/wallpaper-quadhd-4.jpg");
+							$("#image1").css("opacity", 2);
+							
+						} else if (e.target==image2){
+							$("#image2").attr("src", "C:/Users/Alejandro Molinar/Pictures/imagenes/FONDOS/thumb-1920-1014069.jpg");
+							$("#image2").css("opacity", 2);
+
+						} else if (e.target==image3){
+							$("#image3").attr("src", "C:/Users/Alejandro Molinar/Pictures/imagenes/FONDOS/thumb-1920-407944.png");
+							$("#image3").css("opacity", 2);
+
+						} else if (e.target==image4){
+							$("#image4").attr("src", "C:/Users/Alejandro Molinar/Pictures/imagenes/FONDOS/26704_4k-ultra-hd-desktop-wallpapers-hd-3840x2160-free-desktop_3840x2160_h.jpg");
+							$("#image4").css("opacity", 2);
+
+						}
+						
+											
+					}, false);
+					
+					iterable_element.addEventListener("mouseout", function (e) {
+						
+						if (e.target==image1) {
+							$("#image1").attr("src", "C:/Users/Alejandro Molinar/Pictures/imagenes/FONDOS/thumb-1920-1014069.jpg");
+							$("#image1").css("opacity", 0.5);
+							
+						} else if (e.target==image2){
+							$("#image2").attr("src", "C:/Users/Alejandro Molinar/Pictures/imagenes/FONDOS/26704_4k-ultra-hd-desktop-wallpapers-hd-3840x2160-free-desktop_3840x2160_h.jpg");
+							$("#image2").css("opacity", 0.5);
+
+						} else if (e.target==image3){
+							$("#image3").attr("src", "C:/Users/Alejandro Molinar/Pictures/imagenes/FONDOS/wallpaper-quadhd-4.jpg");
+							$("#image3").css("opacity", 0.5);
+
+						} else if (e.target==image4){
+							$("#image4").attr("src", "C:/Users/Alejandro Molinar/Pictures/imagenes/FONDOS/thumb-1920-407944.png");
+							$("#image4").css("opacity", 0.5);
+
+						}
+						
+											
+					}, false);
+
+					var band=true;	
+					$("#gallery").click(function() {          //ImageAnimated
+						
+						if (band==true) {
+
+							$(this).animate({
+								marginLeft: "5px"
+							}, 1000);
+							band=false;
+
+						}else if(band==false){
+							
+							$(this).animate({
+								marginLeft: "-80px"
+							}, 1000);
+							band=true;
+						}
+						
+                   
+                });
+					
+				}
+
+			});	
+			
+		</script>
+		
+		
+		
+	</head>
+	<body>
+		
+		<div id="container">
+<!-- 			<div id="container2" class=""> -->
+<!-- 				<h2>Errores</h2> -->
+<!-- 				<h3>Errores2</h3> -->
+<!-- 			</div> -->
+			
+<!-- 		</div> -->
+<!-- 		<div id="banner"> -->
+<!-- 			<p>Anuncio</p><br> -->
+<!-- 			<p id="close">Cerrar</p> -->
+			
+			
+		</div>
+		
+		<div id="image">
+			<img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\thumb-1920-1014069.jpg" id="image1">
+			<img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\26704_4k-ultra-hd-desktop-wallpapers-hd-3840x2160-free-desktop_3840x2160_h.jpg" id="image2">
+			<img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\wallpaper-quadhd-4.jpg" id="image3">
+			<img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\thumb-1920-407944.png" id="image4">
+		</div>
+			
+			
+		<div id="gallery">
+			<img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\thumb-1920-1014069.jpg" width="70px" height="70px" id="image1G"><br>
+			<img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\26704_4k-ultra-hd-desktop-wallpapers-hd-3840x2160-free-desktop_3840x2160_h.jpg" width="70px" height="70px" id="image2G"><br>
+			<img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\wallpaper-quadhd-4.jpg" width="70px" height="70px" id="image3G"><br>
+			<img src="C:\Users\Alejandro Molinar\Pictures\imagenes\FONDOS\thumb-1920-407944.png" width="70px" height="70px" id="image4G"><br>
+
+		</div>	
+			
+			
+	</body>
+</html>
